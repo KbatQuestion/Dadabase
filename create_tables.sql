@@ -2,9 +2,10 @@
 * This document contains all the SQL commands that will generate all the
 * tables in the database.
 * 
-* +-----------------+
+* 
+* +------------------+
 * |Naming conventions|
-* +-----------------+
+* +------------------+
 * 
 * Tables
 * 
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Customer (
     contact_number VARCHAR(11),
     passport_number VARCHAR(255),
     ADDRESS VARCHAR(255),
-    PRIMARY KEY (agent_id),
+    PRIMARY KEY (customer_id),
     FOREIGN KEY (agent_id) REFERENCES Agent ON DELETE SET NULL
 );
 
@@ -72,8 +73,7 @@ CREATE TABLE IF NOT EXISTS Dependants (
 CREATE TABLE IF NOT EXISTS Booking_dependants (
     dependants_id VARCHAR(7) NOT NULL,
     booking_id VARCHAR(7) NOT NULL,
-    PRIMARY KEY (dependants_id),
-    PRIMARY KEY (booking_id)
+    PRIMARY KEY (dependants_id, booking_id)
 );
 
 CREATE TABLE IF NOT EXISTS Item (
@@ -88,5 +88,5 @@ CREATE TABLE IF NOT EXISTS Booking_item (
     booking_id VARCHAR(7) NOT NULL,
     item_id VARCHAR(7),
     quantity DECIMAL(2),
-    PRIMARY KEY (agent_id)
+    PRIMARY KEY (booking_id)
 );
