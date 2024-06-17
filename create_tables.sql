@@ -24,7 +24,7 @@
 CREATE TABLE IF NOT EXISTS Manager (
     manager_id VARCHAR(7) NOT NULL,
     name VARCHAR(255),
-    contact_number DECIMAL(11),
+    contact_number VARCHAR(11),
     PRIMARY KEY (manager_id)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS Agent (
     agent_id VARCHAR(7) NOT NULL,
     manager_id VARCHAR(7),
     name VARCHAR(255),
-    contact_number DECIMAL(11),
+    contact_number VARCHAR(11),
     PRIMARY KEY (agent_id),
     FOREIGN KEY (manager_id) REFERENCES Manager ON DELETE SET NULL
 );
